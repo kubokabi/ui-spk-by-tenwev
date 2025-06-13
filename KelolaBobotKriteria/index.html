@@ -49,6 +49,26 @@
   <!-- [ Pre-loader ] End -->
   <!-- [ Sidebar Menu ] start -->
   <nav class="pc-sidebar">
+    <style>
+      .logout-fixed {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .logout .pc-link {
+        display: flex;
+        align-items: center;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        padding-top: 0.625rem;
+        padding-bottom: 2rem;
+        font-size: 0.875rem;
+        --tw-text-opacity: 1;
+        color: rgb(169 183 208 / var(--tw-text-opacity));
+      }
+    </style>
     <div class="navbar-wrapper">
       <div class="m-header flex items-center py-4 px-6 h-header-height">
         <a href="../dashboard/index.html" class="b-brand flex items-center gap-3">
@@ -75,42 +95,53 @@
             <label>Menu</label>
             <i data-feather="feather"></i>
           </li>
+          <!-- Kelola Bobot Kriteria -->
           <li class="pc-item pc-hasmenu">
             <a href="../KelolaBobotKriteria/index.html" class="pc-link">
-              <span class="pc-micon"> <i data-feather="edit"></i></span>
+              <span class="pc-micon"> <i data-feather="sliders"></i></span>
               <span class="pc-mtext">Kelola Bobot Kriteria</span>
             </a>
           </li>
+
+          <!-- Lihat Nilai Sub Kriteria -->
           <li class="pc-item pc-hasmenu">
-            <a href="../LihatNilaiSubKriteria/" class="pc-link">
-              <span class="pc-micon"> <i data-feather="type"></i></span>
+            <a href="../LihatNilaiSubKriteria/index.html" class="pc-link">
+              <span class="pc-micon"> <i data-feather="list"></i></span>
               <span class="pc-mtext">Lihat Nilai Sub Kriteria</span>
             </a>
           </li>
+
+          <!-- Kelola Data Tendik -->
           <li class="pc-item pc-hasmenu">
             <a href="../KelolaDataTendik/index.html" class="pc-link">
-              <span class="pc-micon"> <i data-feather="feather"></i></span>
+              <span class="pc-micon"> <i data-feather="users"></i></span>
               <span class="pc-mtext">Kelola Data Tendik</span>
             </a>
           </li>
+
+          <!-- Kelola Penilaian -->
           <li class="pc-item pc-hasmenu">
             <a href="../KelolaPenilaian/index.html" class="pc-link">
-              <span class="pc-micon"> <i data-feather="feather"></i></span>
+              <span class="pc-micon"> <i data-feather="check-square"></i></span>
               <span class="pc-mtext">Kelola Penilaian</span>
             </a>
           </li>
+
+          <!-- Lihat Perhitungan -->
           <li class="pc-item pc-hasmenu">
             <a href="../LihatPerhitungan/index.html" class="pc-link">
-              <span class="pc-micon"> <i data-feather="feather"></i></span>
+              <span class="pc-micon"> <i data-feather="bar-chart-2"></i></span>
               <span class="pc-mtext">Lihat Perhitungan</span>
             </a>
           </li>
-          <li class="pc-item">
-            <a href="../other/sample-page.html" class="pc-link">
-              <span class="pc-micon">
-                <i data-feather="sidebar"></i>
+        </ul>
+        <ul class="logout">
+          <li class="pc-item logout-fixed">
+            <a href="../logout.html" class="pc-link">
+              <span class="pc-micon text-danger">
+                <i data-feather="log-out"></i>
               </span>
-              <span class="pc-mtext">Logout</span>
+              <span class="pc-mtext">&nbsp; Logout</span>
             </a>
           </li>
         </ul>
@@ -376,10 +407,11 @@
 
   <!-- [ Main Content ] start -->
   <div class="pc-container">
-    <div class="p-4 bg-white rounded-xl shadow-md w-full max-w-none">
+    <div class="card " style="padding: 50px;">
       <div class="flex items-center justify-between mb-4">
         <h2 class="text-xl font-semibold">Daftar Kriteria</h2>
-        <a href="TambahBobotKreteria.html" class="bg-green-500 text-white text-sm px-4 py-2 rounded hover:bg-green-600 transition">
+        <a href="TambahBobotKreteria.html"
+          class="bg-green-500 text-white text-sm px-4 py-2 rounded hover:bg-green-600 transition">
           + Tambah Data
         </a>
       </div>
@@ -406,7 +438,7 @@
               <td class="px-4 py-2 border">
                 <a href="#!"
                   class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600 mr-1">Hapus</a>
-                <a href="#!"
+                <a href="EditBobotKreteria.html"
                   class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">Edit</a>
               </td>
             </tr>
@@ -422,7 +454,7 @@
               <td class="px-4 py-2 border">
                 <a href="#!"
                   class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600 mr-1">Hapus</a>
-                <a href="#!"
+                <a href="EditBobotKreteria.html"
                   class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">Edit</a>
               </td>
             </tr>
@@ -437,7 +469,7 @@
               <td class="px-4 py-2 border">
                 <a href="#!"
                   class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600 mr-1">Hapus</a>
-                <a href="#!"
+                <a href="EditBobotKreteria.html"
                   class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">Edit</a>
               </td>
             </tr>
@@ -452,7 +484,7 @@
               <td class="px-4 py-2 border">
                 <a href="#!"
                   class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600 mr-1">Hapus</a>
-                <a href="#!"
+                <a href="EditBobotKreteria.html"
                   class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">Edit</a>
               </td>
             </tr>
@@ -463,25 +495,9 @@
   </div>
 
 
+
   <!-- [ Main Content ] end -->
-  <footer class="pc-footer">
-    <div class="footer-wrapper container-fluid mx-10">
-      <div class="grid grid-cols-12 gap-1.5">
-        <div class="col-span-12 sm:col-span-6 my-1">
-          <p class="m-0"></p>
-          <a href="https://codedthemes.com/"
-            class="text-theme-bodycolor dark:text-themedark-bodycolor hover:text-primary-500 dark:hover:text-primary-500"
-            target="_blank">CodedThemes</a>
-          , Built with ♥ for a smoother web presence.
-          </p>
-        </div>
-        <div class="col-span-12 sm:col-span-6 my-1 justify-self-end">
-          <p class="inline-block max-sm:mr-3 sm:ml-2">Distributed by <a href="https://themewagon.com"
-              target="_blank">Themewagon</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
+
 
   <!-- Required Js -->
   <script src="../assets/js/plugins/simplebar.min.js"></script>
