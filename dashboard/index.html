@@ -3,7 +3,7 @@
   <!-- [Head] start -->
 
   <head>
-    <title>Home | Datta Able Dashboard Template</title>
+    <title>Dashboard | Sistem Pengambilan Keputusan</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -50,6 +50,25 @@
 <!-- [ Pre-loader ] End -->
  <!-- [ Sidebar Menu ] start -->
 <nav class="pc-sidebar">
+  <style>
+  .logout-fixed {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    z-index: 10;
+  }
+  .logout .pc-link {
+    display: flex;
+    align-items: center;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.625rem;
+    padding-bottom: 2rem;
+    font-size: 0.875rem;
+    --tw-text-opacity: 1;
+    color: rgb(169 183 208 / var(--tw-text-opacity));
+  }
+  </style>
   <div class="navbar-wrapper">
     <div class="m-header flex items-center py-4 px-6 h-header-height">
       <a href="../dashboard/index.html" class="b-brand flex items-center gap-3">
@@ -76,42 +95,53 @@
           <label>Menu</label>
           <i data-feather="feather"></i>
         </li>
+              <!-- Kelola Bobot Kriteria -->
         <li class="pc-item pc-hasmenu">
           <a href="../KelolaBobotKriteria/index.html" class="pc-link">
-            <span class="pc-micon"> <i data-feather="edit"></i></span>
+            <span class="pc-micon"> <i data-feather="sliders"></i></span>
             <span class="pc-mtext">Kelola Bobot Kriteria</span>
           </a>
         </li>
+
+        <!-- Lihat Nilai Sub Kriteria -->
         <li class="pc-item pc-hasmenu">
-          <a href="../LihatNilaiSubKriteria/" class="pc-link">
-            <span class="pc-micon"> <i data-feather="type"></i></span>
+          <a href="../LihatNilaiSubKriteria/index.html" class="pc-link">
+            <span class="pc-micon"> <i data-feather="list"></i></span>
             <span class="pc-mtext">Lihat Nilai Sub Kriteria</span>
           </a>
         </li>
+
+        <!-- Kelola Data Tendik -->
         <li class="pc-item pc-hasmenu">
           <a href="../KelolaDataTendik/index.html" class="pc-link">
-            <span class="pc-micon"> <i data-feather="feather"></i></span>
+            <span class="pc-micon"> <i data-feather="users"></i></span>
             <span class="pc-mtext">Kelola Data Tendik</span>
           </a>
         </li>
+
+        <!-- Kelola Penilaian -->
         <li class="pc-item pc-hasmenu">
           <a href="../KelolaPenilaian/index.html" class="pc-link">
-            <span class="pc-micon"> <i data-feather="feather"></i></span>
+            <span class="pc-micon"> <i data-feather="check-square"></i></span>
             <span class="pc-mtext">Kelola Penilaian</span>
           </a>
         </li>
+
+        <!-- Lihat Perhitungan -->
         <li class="pc-item pc-hasmenu">
           <a href="../LihatPerhitungan/index.html" class="pc-link">
-            <span class="pc-micon"> <i data-feather="feather"></i></span>
+            <span class="pc-micon"> <i data-feather="bar-chart-2"></i></span>
             <span class="pc-mtext">Lihat Perhitungan</span>
           </a>
         </li>
-        <li class="pc-item">
-          <a href="../other/sample-page.html" class="pc-link">
-            <span class="pc-micon">
-              <i data-feather="sidebar"></i>
+      </ul>
+      <ul class="logout">
+          <li class="pc-item logout-fixed">
+          <a href="../logout.html" class="pc-link">
+            <span class="pc-micon text-danger">
+              <i data-feather="log-out"></i>
             </span>
-            <span class="pc-mtext">Logout</span>
+            <span class="pc-mtext">&nbsp; Logout</span>
           </a>
         </li>
       </ul>
