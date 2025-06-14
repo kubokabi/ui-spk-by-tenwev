@@ -436,7 +436,7 @@
                   class="inline-block px-2 py-1 text-xs font-semibold text-white bg-green-500 rounded">Benefit</span>
               </td>
               <td class="px-4 py-2 border">
-                <a href="#!"
+                <a href="javascript:void(0)" onclick="confirmHapus(this)"
                   class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600 mr-1">Hapus</a>
                 <a href="EditBobotKreteria.html"
                   class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">Edit</a>
@@ -452,7 +452,7 @@
                   class="inline-block px-2 py-1 text-xs font-semibold text-white bg-green-500 rounded">Benefit</span>
               </td>
               <td class="px-4 py-2 border">
-                <a href="#!"
+                <a href="javascript:void(0)" onclick="confirmHapus(this)"
                   class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600 mr-1">Hapus</a>
                 <a href="EditBobotKreteria.html"
                   class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">Edit</a>
@@ -467,7 +467,7 @@
                   class="inline-block px-2 py-1 text-xs font-semibold text-white bg-green-500 rounded">Benefit</span>
               </td>
               <td class="px-4 py-2 border">
-                <a href="#!"
+                <a href="javascript:void(0)" onclick="confirmHapus(this)"
                   class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600 mr-1">Hapus</a>
                 <a href="EditBobotKreteria.html"
                   class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">Edit</a>
@@ -482,8 +482,9 @@
                   class="inline-block px-2 py-1 text-xs font-semibold text-white bg-green-500 rounded">Benefit</span>
               </td>
               <td class="px-4 py-2 border">
-                <a href="#!"
+                <a href="javascript:void(0)" onclick="confirmHapus(this)"
                   class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600 mr-1">Hapus</a>
+
                 <a href="EditBobotKreteria.html"
                   class="inline-block bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600">Edit</a>
               </td>
@@ -491,8 +492,39 @@
           </tbody>
         </table>
       </div>
+
+    </div>
+    <!-- Modal Konfirmasi -->
+    <div id="confirmDialog"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+
+      <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+        <div class="flex items-center">
+          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-red-100 mr-4">
+            <svg class="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v3.75M3 16.126c-.866 1.5.217 3.374 1.948 3.374h14.104c1.73 0 2.813-1.874 1.948-3.374L13.849 3.378c-.866-1.5-3.032-1.5-3.898 0L3 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-medium text-gray-900">Konfirmasi Hapus</h3>
+            <p class="text-sm text-gray-600 mt-1">Apakah Anda yakin ingin menghapus data ini? Tindakan ini tidak dapat
+              dibatalkan.</p>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-end gap-3">
+          <a href="javascript:void(0)" onclick="confirmHapus(this)"
+            class="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600 mr-1">Hapus</a>
+
+          <button onclick="closeDialog()"
+            class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-50 text-sm">
+            Batal
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+
 
 
 
@@ -507,6 +539,35 @@
   <script src="../assets/js/component.js"></script>
   <script src="../assets/js/theme.js"></script>
   <script src="../assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function confirmHapus(button) {
+      Swal.fire({
+        title: 'Yakin ingin menghapus?',
+        text: "Data akan dihapus secara permanen!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#e3342f',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Ya, hapus!',
+        cancelButtonText: 'Batal'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const row = button.closest('tr');
+          row.remove(); // Ganti ini jika ingin menghapus lewat server
+
+          Swal.fire({
+            title: 'Terhapus!',
+            text: 'Data berhasil dihapus.',
+            icon: 'success',
+            timer: 1500,
+            showConfirmButton: false
+          });
+        }
+      });
+    }
+  </script>
+
 
   <div class="floting-button fixed bottom-[50px] right-[30px] z-[1030]">
   </div>
@@ -544,6 +605,30 @@
 
 
 </body>
+<!-- Modal Konfirmasi -->
+
+<script>
+  let targetRow = null;
+
+  function openDialog(button) {
+    targetRow = button.closest('tr');
+    document.getElementById('confirmDialog').classList.remove('hidden');
+    document.getElementById('confirmDialog').classList.add('flex');
+  }
+
+  function closeDialog() {
+    document.getElementById('confirmDialog').classList.add('hidden');
+    document.getElementById('confirmDialog').classList.remove('flex');
+  }
+
+  function confirmDelete() {
+    if (targetRow) {
+      targetRow.remove(); // ganti ini dengan aksi ke backend jika diperlukan
+      closeDialog();
+    }
+  }
+</script>
+
 <!-- [Body] end -->
 
 </html>
